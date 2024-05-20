@@ -1,0 +1,26 @@
+.home{
+  width: 100%;
+  .deceration{
+    position: absolute;
+    height: 91vh;
+    z-index: -1;
+  }
+  .container{
+    .row{
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      img{
+        margin-top: 40px;
+      }
+      .search{
+        width: 100%;
+        margin-top:30px;
+        .p-autocomplete {
+          width: 500px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.center {
+  width: 100%;
+  height: 100vh;
+  .container {
+    .row{
+      height: 100%;
+      justify-content: center;
+      .cartBox {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        gap: 40px;
+        .cart {
+          width: 300px;
+          h4{
+            color:black;
+          }
+          .cartItem{
+            width: 300px;
+            position: relative;
+            margin-bottom: 10px;
+            .hover{
+              position:absolute;
+              background: black;
+              opacity: 0.5;
+              width: 100%;
+              height: 100%;
+              transition: ease 1s;
+              &:hover{
+                opacity: 0;
+              }
+            }
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

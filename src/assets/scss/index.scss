@@ -1,0 +1,15 @@
+//components
+@import 'components/header/header';
+@import './_base.scss';
+@import "components/header/sideBar";
+@import "components/_searchVoluntary";
+
+// pages
+@import "page/_home";
+@import "page/_center";
+
+
+//PrimeReact
+@import "primereact/resources/themes/lara-light-cyan/theme.css";
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
