@@ -3,10 +3,10 @@
 @import './_base.scss';
 @import "components/header/sideBar";
 @import "components/_searchVoluntary";
-
 // pages
-@import "page/_home";
-@import "page/_center";
+@import "page/home";
+@import "page/center";
+@import "page/voluntaryDetails";
 
 
 //PrimeReact

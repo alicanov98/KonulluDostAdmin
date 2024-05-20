@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import { db } from "../fakeDb/db";
-
+// @ts-ignore
+import person from '../assets/image/person2.jpg'
 export interface VoluntaryListType {
     id: number;
     name: string;
@@ -27,14 +28,22 @@ function VoluntaryDetails() {
     return (
         <>
             {cardData ? (
-                <div>
-                    <h1>{cardData.name} {cardData.surname}</h1>
-                    <p>Center Number: {cardData.centerNumber}</p>
-                    <p>DK Number: {cardData.dkNumber}</p>
-                    <p>Club: {cardData.club}</p>
-                    <p>Position: {cardData.position}</p>
-                    <img src={cardData.image} alt={`${cardData.name} ${cardData.surname}`} />
-                </div>
+                <section className='voluntaryDetails'>
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='imagePerson'>
+                                <div className='imgPerVol'>
+                                    <img className='voluntaryImage' src={person}
+                                         alt={`${cardData.name} ${cardData.surname}`}/>
+                                </div>
+                            </div>
+                            <h1 className='voluntaryName'>{cardData.name} {cardData.surname}</h1>
+                            <p> {cardData.centerNumber} saylı Dost mərkəzi</p>
+                            <p> {cardData.centerNumber}DK-{cardData.dkNumber}</p>
+                            <p> {cardData.position} Könüllü</p>
+                        </div>
+                    </div>
+                </section>
             ) : (
                 <p>Loading...</p>
             )}
