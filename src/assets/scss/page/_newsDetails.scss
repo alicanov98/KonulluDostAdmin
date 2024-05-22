@@ -1,0 +1,35 @@
+.newsDetails{
+  .container{
+    .row{
+      .newsDetailsCardBox{
+        margin: 50px 0;
+        .newsDetailsCard{
+          display :flex;
+          gap: 50px;
+          height: 550px;
+          align-items: center;
+
+          img{
+            object-fit: cover;
+            border-radius: 20px;
+          }
+          .newsName{
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 35px;
+            letter-spacing: 0;
+            line-height: 1.25;
+            text-align: left;
+          }
+          .newsDetailsTitle{
+            font-weight: 400;
+            font-size: 25px;
+            letter-spacing: 0;
+            line-height: 1.25;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

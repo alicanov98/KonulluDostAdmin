@@ -1,0 +1,60 @@
+.centerVoluntaryDetails{
+  .container{
+    .row{
+      justify-content: center;
+      .cardBoxCenterVoluntaryDetails{
+        margin: 50px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+gap: 30px;
+        .voluntaryCard{
+          background: #fff;
+          display: flex;
+          gap: 30px;
+          width: 490px;
+          height: 170px;
+          padding: 10px;
+          border-radius: 20px;
+          transition: ease .5s;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, .8);
+
+          &:hover{
+            transform: scale(1.1)
+          }
+          .voluntaryImage{
+            width: 200px;
+            height: 150px;
+            border-radius: 20px;
+            object-fit:cover;
+
+          }
+          .cardDetails{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .centerVoluntaryName{
+              font-size: 20px;
+              line-height: 1.5;
+              font-weight: 500;
+              color:#000;
+            }
+            .centerName{
+              font-size: 20px;
+              line-height: 1.5;
+              font-weight: 400;
+              color:#000;
+            }
+            .dkNumber{
+              font-size: 20px;
+              line-height: 1.5;
+              font-weight: 400;
+              color:#000;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import foto from '../assets/image/1-12.jpeg'
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {NavLink} from "react-router-dom";
 
 
 interface NewsItem {
@@ -45,40 +46,40 @@ const News: React.FC = () => {
                     <div className='newsCardBox'>
                         <div className='newsRight'>
                             {topFiveData[0] && (
-                                <div className='newsCard' style={{width: 772, height: 376}}>
+                                <NavLink to={`NewsDetails/${topFiveData[0].id}`} className='newsCard' style={{width: 772, height: 376,display:"block"}}>
                                     <img src={`https://konullu.dost.gov.az/mel/diger/${topFiveData[0].sekil}`} alt={topFiveData[0].sekil}/>
                                     <h3 className='newsTitle'>{topFiveData[0].bas}</h3>
-                                </div>
+                                </NavLink>
                             )}
                             {topFiveData[1] && (
-                                <div className='newsCard' style={{width: 772, height: 248, marginTop: 8}}>
+                                <NavLink to={`NewsDetails/${topFiveData[1].id}`}  className='newsCard' style={{width: 772, height: 248, marginTop: 8,display:'block'}}>
                                     <img src={`https://konullu.dost.gov.az/mel/diger/${topFiveData[1].sekil}`} alt={topFiveData[1].sekil}/>
                                     <h3 className='newsTitle'>{topFiveData[1].bas}</h3>
-                                </div>
+                                </NavLink>
                             )}
                         </div>
                         <div className='newsLeft'>
                             <div style={{display: 'flex', gap: 8}}>
                                 {topFiveData[2] && (
-                                    <div className='newsCard' style={{width: 382, height: 248}}>
+                                    <NavLink to={`NewsDetails/${topFiveData[2].id}`}  className='newsCard' style={{width: 382, height: 248,display:'block'}}>
                                         <img
                                             src={`https://konullu.dost.gov.az/mel/diger/${topFiveData[2].sekil}`}
                                             alt={topFiveData[2]?.sekil || 'Default Title'}/>
                                         <h3 className='littleNewsTitle'>{topFiveData[2].bas}</h3>
-                                    </div>
+                                    </NavLink>
                                 )}
                                 {topFiveData[3] && (
-                                    <div className='newsCard' style={{width: 382, height: 248}}>
+                                    <NavLink to={`NewsDetails/${topFiveData[3].id}`}  className='newsCard' style={{width: 382, height: 248,display:'block'}}>
                                         <img src={`https://konullu.dost.gov.az/mel/diger/${topFiveData[3].sekil}`} alt={topFiveData[3].sekil}/>
                                         <h3 className='littleNewsTitle'>{topFiveData[3].bas}</h3>
-                                    </div>
+                                    </NavLink>
                                 )}
                             </div>
                             {topFiveData[4] && (
-                                <div className='newsCard' style={{width: 772, height: 376, marginTop: 8}}>
+                                <NavLink to={`NewsDetails/${topFiveData[4].id}`}  className='newsCard' style={{width: 772, height: 376, marginTop: 8,display:'block'}}>
                                     <img src={`https://konullu.dost.gov.az/mel/diger/${topFiveData[4].sekil}`} alt={topFiveData[4].sekil}/>
                                     <h3 className='newsTitle'>{topFiveData[4].bas}</h3>
-                                </div>
+                                </NavLink>
                             )}
                         </div>
                     </div>

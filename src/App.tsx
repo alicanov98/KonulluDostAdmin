@@ -7,6 +7,7 @@ import News from "./pages/News";
 import CenterAbout from "./pages/CenterAbout";
 import VoluntaryDetails from "./pages/VoluntaryDetails";
 import CenterVoluntaryDetails from "./pages/CenterVoluntaryDetails";
+import NewsDetails from "./pages/NewsDetails";
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
         <Route path="/centers" element={<Center />} />
         <Route path="/settings" element={<MyPersonalAccount />} />
           <Route path='/news' element={<News/>}/>
+          <Route path='News/NewsDetails/:id' element={<NewsDetails/>}/>
           <Route path='/myPersonalAcount' element={<MyPersonalAccount/>}/>
-          <Route path='/centerAbout' element={<CenterAbout/>}/>
+          <Route path='/centerAbout/:id' element={<CenterAbout/>}/>
           <Route path="/voluntary-details/:id" element={<VoluntaryDetails />} />
-          <Route path="/CenterVoluntaryDetails" element={<CenterVoluntaryDetails />} />
+          <Route path="/CenterVoluntaryDetails/:id/:type" element={<CenterVoluntaryDetails />} />
       </Routes>
     </BrowserRouter>
   );

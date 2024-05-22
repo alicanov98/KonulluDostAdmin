@@ -15,7 +15,7 @@ function Center() {
                 <div className='container'>
                     <div className='row'>
                         <div className='cartBox'>
-                            <NavLink to='/centerAbout' className='cart'>
+                            <NavLink to='/centerAbout/1' className='cart' >
                                 <div className='cartItem'>
                         <span className='hover'>
                     </span>
@@ -24,7 +24,7 @@ function Center() {
                                 <h4> 1 saylı Bakı Dost mərkəzi</h4>
                             </NavLink>
 
-                            <NavLink to='/centerAbout'  className='cart'>
+                            <NavLink to='/centerAbout/2'  className='cart'>
                                 <div className='cartItem'>
                         <span className='hover'>
                     </span>
@@ -32,7 +32,7 @@ function Center() {
                                 </div>
                                 <h4> 2 saylı Bakı Dost mərkəzi</h4>
                             </NavLink>
-                            <NavLink to='/centerAbout' className='cart'>
+                            <NavLink to='/centerAbout/3' className='cart'>
                                 <div className='cartItem'>
                         <span className='hover'>
                     </span>
@@ -40,7 +40,7 @@ function Center() {
                                 </div>
                                 <h4> 3 saylı Bakı Dost mərkəzi</h4>
                             </NavLink>
-                            <NavLink to='/centerAbout' className='cart'>
+                            <NavLink to='/centerAbout/4' className='cart'>
                                 <div className='cartItem'>
                         <span className='hover'>
                     </span>
@@ -48,7 +48,7 @@ function Center() {
                                 </div>
                                 <h4> 4 saylı Bakı Dost mərkəzi</h4>
                             </NavLink>
-                            <NavLink to='/centerAbout' className='cart'>
+                            <NavLink to='/centerAbout/5' className='cart'>
                                 <div className='cartItem'>
                         <span className='hover'>
                     </span>
@@ -56,7 +56,7 @@ function Center() {
                                 </div>
                                 <h4> 5 saylı Bakı Dost mərkəzi</h4>
                             </NavLink>
-                            <NavLink to='/centerAbout' className='cart'>
+                            <NavLink to='/centerAbout/6' className='cart'>
                                 <div className='cartItem'>
                         <span className='hover'>
                     </span>
@@ -64,7 +64,7 @@ function Center() {
                                 </div>
                                 <h4> Abşeron Dost mərkəzi</h4>
                             </NavLink>
-                            <NavLink to='/centerAbout' className='cart'>
+                            <NavLink to='/centerAbout/7' className='cart'>
                                 <div className='cartItem'>
                         <span className='hover'>
                     </span>
