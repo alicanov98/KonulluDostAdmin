@@ -1,8 +1,14 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import { FaLocationDot } from "react-icons/fa6";
+import { MdContactPhone } from "react-icons/md";
+import { TbInfoSquareRoundedFilled } from "react-icons/tb";
+
 import { db } from "../fakeDb/db";
 // @ts-ignore
 import person from '../assets/image/person2.jpg'
+// @ts-ignore
+import decor from '../assets/image/1849355.png'
 export interface VoluntaryListType {
     id: number,
     name: string,
@@ -40,32 +46,38 @@ function VoluntaryDetails() {
                 <section className='voluntaryDetails'>
                     <div className='container'>
                         <div className='row'>
-                            <div className='imagePerson'>
+                            <div className='aboutVoluntaryLeft'>
                                 <div className='imgPerVol'>
                                     <img className='voluntaryImage' src={person}
                                          alt={`${cardData.name} ${cardData.surname}`}/>
                                 </div>
-                                <h1 className='voluntaryName'> {cardData.surname} {cardData.name} {cardData.fatherName}</h1>
+                                <div className='volTitle'>
+                                    <h1 className='voluntaryName'> {cardData.surname} {cardData.name} {cardData.fatherName}</h1>
+                                    <h4 className='volcen'> {cardData.centerNumber}DK-{cardData.dkNumber}</h4>
+                                    <h4 className='volcen'> {cardData.position} Könüllü</h4>
+                                    <h4 className='volcen'> {cardData.centerNumber} saylı Dost mərkəzi</h4>
+                                </div>
                             </div>
-                            <div className='contact'>
-                                <h4 className='voluntaryAbout'> Fin: {cardData.fin}</h4>
-                                <h4 className='voluntaryAbout'> Email: {cardData.email}</h4>
-                                <h4 className='voluntaryAbout'> Tel: {cardData.phone}</h4>
-                            </div>
-                            <div className='contact'>
-                                <h4 className='voluntaryAbout'> Cinsi: {cardData.gender}</h4>
-                                <h4 className='voluntaryAbout'> Doğum tarixi: {cardData.birthday}</h4>
-                                <h4 className='voluntaryAbout'> Təhsil: {cardData.education}</h4>
-                                <h4 className='voluntaryAbout'> Dil bilikləri: {cardData.language}</h4>
-                            </div>
-                            <div className='contact'>
-                                <h4 className='voluntaryAbout'> {cardData.centerNumber}DK-{cardData.dkNumber}</h4>
-                                <h4 className='voluntaryAbout'> {cardData.centerNumber} saylı Dost mərkəzi</h4>
-                                <h4 className='voluntaryAbout'> {cardData.position} Könüllü</h4>
-                            </div>
-                            <div className='contact'>
-                                <h4 className='voluntaryAbout'> Şəhər: {cardData.city}</h4>
-                                <h4 className='voluntaryAbout'> Adres: {cardData.address}</h4>
+                            <div className='aboutVoluntaryRight'>
+                                <div className='contact'>
+                                    <h2 className='title'><TbInfoSquareRoundedFilled style={{fontSize:'35px',  color:'#740093'}}/> Haqqında</h2>
+                                    <h4 className='volAbo'> Fin: {cardData.fin}</h4>
+                                    <h4 className='volAbo'> Cinsi: {cardData.gender}</h4>
+                                    <h4 className='volAbo'> Doğum tarixi: {cardData.birthday}</h4>
+                                    <h4 className='volAbo'> Təhsil: {cardData.education}</h4>
+                                    <h4 className='volAbo'> Dil bilikləri: {cardData.language}</h4>
+                                </div>
+                                <div className='contact'>
+                                    <h2 className='title'> <MdContactPhone style={{ fontSize:'35px', color:'#740093'}} /> Əlaqə</h2>
+                                    <h4 className='volAbo'> Email: {cardData.email}</h4>
+                                    <h4 className='volAbo'> Tel: {cardData.phone}</h4>
+                                </div>
+                                <div className='contact'>
+                                    <h2 className='title'><FaLocationDot style={{fontSize:'35px', color:'#740093'}}/> Ünvan</h2>
+                                    <h4 className='volAbo'> Şəhər: {cardData.city}</h4>
+                                    <h4 className='volAbo'> Ünvanı: {cardData.address}</h4>
+                                </div>
+                                <img className='decor' src={decor} alt={decor}/>
                             </div>
                         </div>
                     </div>

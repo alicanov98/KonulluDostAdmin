@@ -2,19 +2,18 @@
   width: 100%;
   .container {
     .row {
-      flex-direction: column;
-
-      .imagePerson {
-        width: 100%;
-        height: 80px;
-        margin: 70px 0;
-        display: flex;
+      gap: 50px;
+      .aboutVoluntaryLeft {
+        width: 30%;
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
         align-items: center;
-        gap: 80px;
+        margin: 30px 0;
         .imgPerVol {
           background: white;
-          width: 170px;
-          height: 170px;
+          width: 270px;
+          height: 270px;
           border-radius: 100%;
           position: relative;
           display: flex;
@@ -24,26 +23,65 @@
 
           .voluntaryImage {
             position: absolute;
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
             border-radius: 100%;
             object-fit: cover;
           }
         }
-             .voluntaryName{
-                 font-size: 40px;
-                 text-transform:uppercase;
-             }
 
+        .volTitle{
+          border-bottom: 1px solid #e3e5eb;
+          .voluntaryName{
+            font-size: 24px;
+            text-transform:uppercase;
+            margin-top:20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e3e5eb;
+            color: #232d40;
+            font-weight: 700;
+            line-height: 2;
+          }
+          .volcen{
+            margin-bottom: 5px;
+            font-size: 18px;
+            color: #232d40;
+            line-height: 1.5;
+            font-weight: 400;
+          }
         }
-      .contact{
-        border-bottom: 1px solid black;
-        width: 40%;
-        .voluntaryAbout{
-          margin: 5px 0;
-          font-size: 20px;
         }
-      }
+.aboutVoluntaryRight{
+  width: 70%;
+  margin-top: 60px;
+  position: relative;
+  .decor{
+    position: absolute;
+    right: -42px;
+    top:419px;
+  }
+  .contact{
+    width: 50%;
+    border-bottom: 1px solid #e3e5eb;
+    .title{
+      display:flex;
+      align-items: center;
+      gap:10px;
+      font-size:28px;
+      margin-top:10px;
+      margin-bottom: 5px;
+      color: #232d40;
+    }
+    .volAbo{
+      margin-left: 45px;
+      margin-bottom: 13px;
+      font-size: 18px;
+      color: #232d40;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+  }
+}
       }
     }
   }
