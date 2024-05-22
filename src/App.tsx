@@ -4,8 +4,9 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import Center from "./pages/Center";
 import News from "./pages/News";
-import CenterAbout from "./pages/centerAbout";
+import CenterAbout from "./pages/CenterAbout";
 import VoluntaryDetails from "./pages/VoluntaryDetails";
+import CenterVoluntaryDetails from "./pages/CenterVoluntaryDetails";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/myPersonalAcount' element={<MyPersonalAccount/>}/>
           <Route path='/centerAbout' element={<CenterAbout/>}/>
           <Route path="/voluntary-details/:id" element={<VoluntaryDetails />} />
+          <Route path="/CenterVoluntaryDetails" element={<CenterVoluntaryDetails />} />
       </Routes>
     </BrowserRouter>
   );

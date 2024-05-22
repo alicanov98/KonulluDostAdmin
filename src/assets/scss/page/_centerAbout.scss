@@ -1,0 +1,41 @@
+.centerAbout{
+  img{
+    width: 100%;
+    height: 91.76vh;
+    object-fit:cover;
+    position: absolute;
+    z-index: -1;
+  }
+  .container{
+    .row{
+      justify-content: center;
+      .cardBox{
+margin-top: 150px;
+        display: flex;
+        gap: 40px;
+        .cart{
+          backdrop-filter: blur(5px);
+          background: hsla(0, 0%, 100%, .1);
+          border-radius: 10px;
+          box-shadow: 0 25px 45px rgba(0, 0, 0, .2);
+          width: 400px;
+          height: 300px;
+
+          .cartItem{
+
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        h3{
+          font-size: 30px;
+          color: #740093;
+          line-height: 1.5;
+          font-weight: 400;
+        }
+          }
+        }
+      }
+    }
+  }
+}
