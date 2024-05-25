@@ -43,20 +43,24 @@ const SearchVoluntarys: React.FC = () => {
     };
 
     const handleSearch = () => {
-        const query = value.trim();
+        const query = value.trim().toLowerCase();
         if (query.length >= 3) {
             navigate(`/search-results?query=${query}`);
             setValue('');
-        } else {
+        }  else if(query.length === 0 ){
+            navigate(`/search-results?query=${query}`);
+        }else {
             setWarning('Minimum 3 hərf yazmalısınız.');
         }
     };
 
-    const resultSearch = voluntarys.filter((item) =>
-        item.name.toLowerCase().includes(value.toLowerCase()) ||
-        item.surname.toLowerCase().includes(value.toLowerCase()) ||
-        item.fatherName.toLowerCase().includes(value.toLowerCase())
-    );
+    const resultSearch = voluntarys.filter((item) => {
+        const searchTerms = value.trim().toLowerCase().split(' ');
+        return searchTerms.every(term => {
+            const regex = new RegExp(term,('i'));
+            return regex.test(item.name) || regex.test(item.surname) || regex.test(item.fatherName);
+        });
+    });
 
     return (
         <div className='search'>
@@ -73,7 +77,7 @@ const SearchVoluntarys: React.FC = () => {
                         <AiOutlineSearch className="iconSerach" />Axtar
                     </button>
                 </div>
-                {warning && <p style={{ color: 'red' ,marginTop:10 }}>{warning}</p>}
+                {warning && <p style={{ color: 'red', marginTop: 10 }}>{warning}</p>}
                 {value.length >= 3 && (
                     <ul className="searchList">
                         {resultSearch.length === 0 ? (
