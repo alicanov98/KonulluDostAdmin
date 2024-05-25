@@ -8,6 +8,7 @@ import CenterAbout from "./pages/CenterAbout";
 import VoluntaryDetails from "./pages/VoluntaryDetails";
 import CenterVoluntaryDetails from "./pages/CenterVoluntaryDetails";
 import NewsDetails from "./pages/NewsDetails";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/centerAbout/:id' element={<CenterAbout/>}/>
           <Route path="/voluntary-details/:id" element={<VoluntaryDetails />} />
           <Route path="/CenterVoluntaryDetails/:id/:type" element={<CenterVoluntaryDetails />} />
+          <Route path="/search-results" element={<SearchResults />} />
       </Routes>
     </BrowserRouter>
   );
