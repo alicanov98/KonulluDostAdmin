@@ -25,17 +25,13 @@ export interface VoluntaryListType {
     image: string;
     position: string;
 }
-interface SearchVoluntarysProps {
-    open: boolean;
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
-const SearchVoluntarys: React.FC<SearchVoluntarysProps> = ({open,setOpen}) => {
+
+const SearchVoluntarys: React.FC = () => {
     const [voluntarys, setVoluntarys] = useState<VoluntaryListType[]>([]);
     const [value, setValue] = useState<string>('');
     const [warning, setWarning] = useState<string>('');
     const navigate = useNavigate();
-
     useEffect(() => {
         setVoluntarys(db.voluntarys);
     }, []);
@@ -83,7 +79,6 @@ const SearchVoluntarys: React.FC<SearchVoluntarysProps> = ({open,setOpen}) => {
                     <button className='buttonSearch' onClick={handleSearch}>
                         <AiOutlineSearch className="iconSerach"/>Axtar
                     </button>
-                    <button className='allVoluntaryBtn' onClick={()=>setOpen(!open)}><LuListFilter/></button>
                 </div>
                 {warning && <p style={{color: 'red', marginTop: 10}}>{warning}</p>}
                 {value.length >= 3 && (

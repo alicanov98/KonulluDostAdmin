@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import { db } from "../fakeDb/db";
 import SearchVoluntarys, { VoluntaryListType } from "../components/SearchVoluntarys";
 // @ts-ignore
@@ -11,30 +11,27 @@ const useQuery = () => {
     return new URLSearchParams(useLocation().search);
 };
 
-const SearchResults: React.FC = () => {
-    const query = useQuery().get('query')?.toLowerCase() || '';
+    interface SearchVoluntarysProps {
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const Filtered: React.FC<SearchVoluntarysProps> = ({open,setOpen}) => {
     const [voluntarys, setVoluntarys] = useState<VoluntaryListType[]>([]);
     const [name, setName] = useState('');
     const [fatherName, setFatherName] = useState('');
     const [surname, setSurname] = useState('');
     const [fin, setFin] = useState('');
     const [filteredData, setFilteredData] = useState<VoluntaryListType[]>([]);
-const [open,setOpen]=useState(false)
+
+    const navigate = useNavigate();
+
+
+console.log(filteredData)
     useEffect(() => {
         setVoluntarys(db.voluntarys);
     }, []);
 
-    useEffect(() => {
-        const filtered = voluntarys.filter(item => {
-            const searchTerms = query.toLowerCase().split(' ');
-            return searchTerms.every(term =>
-                item.name.toLowerCase().includes(term) ||
-                item.surname.toLowerCase().includes(term) ||
-                item.fatherName.toLowerCase().includes(term)
-            );
-        });
-        setFilteredData(filtered);
-    }, [query, voluntarys]);
+
 
     const handleSearch = () => {
         const filtered = voluntarys.filter(item =>
@@ -49,15 +46,15 @@ const [open,setOpen]=useState(false)
         setSurname('');
         setFin('');
         setOpen(false)
+        navigate('/results', { state: { filteredData } });
     };
 
     return (
-        <section className='centerVoluntaryDetails'>
-            <div style={{marginTop: 30}} className='filteredSearch'><button className='allVoluntaryBtn' onClick={() => setOpen(!open)}><LuListFilter/></button>
-                <SearchVoluntarys/></div>
+        <section className='filtered'>
+            <button className='allVoluntaryBtn' onClick={() => setOpen(!open)}><LuListFilter/></button>
             <div>
                 {open ? <div className='filtered'>
-                <div className='overlay' onClick={() => setOpen(false)}></div>
+                    <div className='overlay' onClick={() => setOpen(false)}></div>
                     <div className='filteredInputs'>
 
                         <input
@@ -88,35 +85,13 @@ const [open,setOpen]=useState(false)
                             value={fin}
                             onChange={(e) => setFin(e.target.value)}
                         />
-                        <button className='filteredBtn' onClick={handleSearch}>Axtar</button>
+                        <button className='filteredBtn' onClick={handleSearch}>Ara</button>
                     </div>
                 </div> : null
                 }
-
-            </div>
-            <div className='container'>
-                <div className='row'>
-                    <div className='cardBoxCenterVoluntaryDetails'>
-                        {filteredData.length > 0 ? (
-                            filteredData.map(item => (
-                                <NavLink to={`/voluntary-details/${item.id}`} className='voluntaryCard' key={item.id}>
-                                    <img className='voluntaryImage' src={person} alt={person}/>
-                                    <div className='cardDetails'>
-                                        <h3 className='centerVoluntaryName'>{item.surname} {item.name} {item.fatherName}</h3>
-                                        <h4 className='centerName'> {item.centerNumber} sayli Dost merkezi</h4>
-                                        <h4 className='dkNumber'>{item.centerNumber}DK-{item.dkNumber}</h4>
-                                        <p style={{color: '#000'}}>{item.position}</p>
-                                    </div>
-                                </NavLink>
-                            ))
-                        ) : (
-                            <li className="searchItem" style={{color: '#000'}}>Axtarış üzrə məlumat tapılmadı!</li>
-                        )}
-                    </div>
-                </div>
             </div>
         </section>
     );
 };
 
-export default SearchResults;
+export default Filtered;
