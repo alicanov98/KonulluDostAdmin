@@ -52,10 +52,10 @@ const [open,setOpen]=useState(false)
 
     return (
         <section className='centerVoluntaryDetails'>
-            <div style={{ marginTop: 30 }}><SearchVoluntarys /> <button onClick={()=>setOpen(!open)}> Filter</button></div>
+            <div  style={{marginTop: 30}}><SearchVoluntarys open={open} setOpen={setOpen}/></div>
             <div>
                 {open ? <div className='filtered'>
-                    <div className='overlay' onClick={()=>setOpen(false)}></div>
+                    <div className='overlay' onClick={() => setOpen(false)}></div>
                     <div className='filteredInputs'>
 
                         <input
@@ -108,7 +108,7 @@ const [open,setOpen]=useState(false)
                                 </NavLink>
                             ))
                         ) : (
-                            <li className="searchItem" style={{ color: '#000' }}>Axtarış üzrə məlumat tapılmadı!</li>
+                            <li className="searchItem" style={{color: '#000'}}>Axtarış üzrə məlumat tapılmadı!</li>
                         )}
                     </div>
                 </div>

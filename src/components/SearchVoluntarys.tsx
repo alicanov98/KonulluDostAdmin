@@ -1,7 +1,10 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { db } from "../fakeDb/db";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch} from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import { LuListFilter } from "react-icons/lu";
+import {ZIndexUtils} from "primereact/utils";
+import set = ZIndexUtils.set;
 
 export interface VoluntaryListType {
     id: number;
@@ -22,8 +25,12 @@ export interface VoluntaryListType {
     image: string;
     position: string;
 }
+interface SearchVoluntarysProps {
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const SearchVoluntarys: React.FC = () => {
+const SearchVoluntarys: React.FC<SearchVoluntarysProps> = ({open,setOpen}) => {
     const [voluntarys, setVoluntarys] = useState<VoluntaryListType[]>([]);
     const [value, setValue] = useState<string>('');
     const [warning, setWarning] = useState<string>('');
@@ -74,14 +81,15 @@ const SearchVoluntarys: React.FC = () => {
                         onChange={inputValue}
                     />
                     <button className='buttonSearch' onClick={handleSearch}>
-                        <AiOutlineSearch className="iconSerach" />Axtar
+                        <AiOutlineSearch className="iconSerach"/>Axtar
                     </button>
+                    <button className='allVoluntaryBtn' onClick={()=>setOpen(!open)}><LuListFilter/></button>
                 </div>
-                {warning && <p style={{ color: 'red', marginTop: 10 }}>{warning}</p>}
+                {warning && <p style={{color: 'red', marginTop: 10}}>{warning}</p>}
                 {value.length >= 3 && (
                     <ul className="searchList">
                         {resultSearch.length === 0 ? (
-                            <li className="searchItem" style={{ color: '#fff' }}>Axtarış üzrə məlumat tapılmadı!</li>
+                            <li className="searchItem" style={{color: '#fff'}}>Axtarış üzrə məlumat tapılmadı!</li>
                         ) : (
                             resultSearch.map((searchItem) => (
                                 <Link key={searchItem.id}
