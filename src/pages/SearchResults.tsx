@@ -19,7 +19,8 @@ const SearchResults: React.FC = () => {
     const [surname, setSurname] = useState('');
     const [fin, setFin] = useState('');
     const [filteredData, setFilteredData] = useState<VoluntaryListType[]>([]);
-const [open,setOpen]=useState(false)
+    const [open,setOpen]=useState(false)
+
     useEffect(() => {
         setVoluntarys(db.voluntarys);
     }, []);
