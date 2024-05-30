@@ -3,6 +3,14 @@ import React, {useState} from "react";
 import logo from '../assets/image/logo.png'
 // @ts-ignore
 import loginimg from '../assets/image/konulluLogin.jpg'
+// // @ts-ignore
+// import aslanli from '../../public/assets/images/users/Nacmaddin.png'
+// // @ts-ignore
+// import hasanova from '../../public/assets/images/users/hesenova.png'
+// // @ts-ignore
+// import mammadli from '../../public/assets/images/users/memmedli.png'
+// // @ts-ignore
+// import teleyev from '../../public/assets/images/users/teleyev.png'
 import {object, string} from "yup";
 import {useForm} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,29 +20,59 @@ const loginSchema=object().shape({
     name: string().trim().required("İstifadəçi Adı zəruridir"),
     password: string().trim().required("Şifrə zəruridir")
 })
+export interface KonulluType{
+    name:string
+    password:string
+    firstName:string
+    surName:string
+    img:string
+}
+const users: KonulluType[] = [
+    {
+        name: 'Həsənova',
+        password: 'həsənova1',
+        firstName: 'Solmaz',
+        surName: 'Həsənova',
+        img:'/assets/images/users/hesenova.png'
+    },
+    {
+        name: 'Teleyev',
+        password: 'teleyev1',
+        firstName: 'Fərid',
+        surName: 'Teleyev',
+        img:'/assets/images/users/teleyev.png'
+    },
+    {
+        name: 'Məmmədli',
+        password: 'məmmədli1',
+        firstName: 'Sona',
+        surName: 'Məmmədli',
+        img:'/assets/images/users/memmedli.png'
+    },
+    {
+        name: 'Aslanlı',
+        password: 'aslanlı1',
+        firstName: 'Nəcməddin',
+        surName: 'Aslanlı',
+        img:'/assets/images/users/Nacmaddin.png'
+    }
+];
 
-const Login: React.FC=()=>{
+const Login: React.FC = () => {
     const [loading, setLoading] = useState(false);
 
- const {
-     register,
-     handleSubmit,formState:{errors}}=useForm({
-     resolver:yupResolver(loginSchema)
- })
-    const obj= {
-    name:'konulludost',
-    password:'123456aa'
- }
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(loginSchema)
+    });
 
-    const onSubmit = (data: { name: string, password: string }) => {
-        if (data.name === obj.name && data.password === obj.password) {
-            const token = "konulludost";
-            setLoading(true)
-            setTimeout(()=>{
-                localStorage.setItem('konulludost', token);
-                console.log("Giris ugurlu!, token:", token);
+    const onSubmit = (data: { name: string; password: string }) => {
+        const user = users.find(user => user.name === data.name && user.password === data.password);
+        if (user) {
+            setLoading(true);
+            setTimeout(() => {
+                localStorage.setItem('user', JSON.stringify(user));
                 window.location.href = "/";
-            },2000)
+            }, 2000);
         } else {
             console.log(errors);
         }
