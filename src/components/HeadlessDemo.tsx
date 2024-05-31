@@ -23,11 +23,12 @@
                                     <img src={logo} alt="mobilApp"/>
                                 </div>
                                 <ul className='sideBarList'>
-                                    <NavLink to="/" className='sideBarItem'>Əsas səhifə</NavLink>
-                                    <NavLink to="/centers" className='sideBarItem'> Mərkəzlər</NavLink>
-                                    <NavLink to="/News" className='sideBarItem'>Xəbərlər</NavLink>
-                                    <NavLink to="/myPersonalAccount" className='sideBarItem'>Şəxsi hesabım</NavLink>
-                                    <NavLink to="/" className='sideBarItem' onClick={() => {
+                                    <NavLink onClick={()=>setVisible(false)} to="/" className='sideBarItem'>Əsas səhifə</NavLink>
+                                    <NavLink onClick={()=>setVisible(false)} to="/centers" className='sideBarItem'> Mərkəzlər</NavLink>
+                                    <NavLink onClick={()=>setVisible(false)} to="/News" className='sideBarItem'>Xəbərlər</NavLink>
+                                    <NavLink onClick={()=>setVisible(false)} to="/UserDetails" className='sideBarItem'>Şəxsi hesabım</NavLink>
+                                    <NavLink  to="/" className='sideBarItem' onClick={() => {
+                                        setVisible(false)
                                         setLoading(true)
                                         setTimeout(() => {
                                             localStorage.clear();

@@ -3,14 +3,7 @@ import React, {useState} from "react";
 import logo from '../assets/image/logo.png'
 // @ts-ignore
 import loginimg from '../assets/image/konulluLogin.jpg'
-// // @ts-ignore
-// import aslanli from '../../public/assets/images/users/Nacmaddin.png'
-// // @ts-ignore
-// import hasanova from '../../public/assets/images/users/hesenova.png'
-// // @ts-ignore
-// import mammadli from '../../public/assets/images/users/memmedli.png'
-// // @ts-ignore
-// import teleyev from '../../public/assets/images/users/teleyev.png'
+
 import {object, string} from "yup";
 import {useForm} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -26,6 +19,12 @@ export interface KonulluType{
     firstName:string
     surName:string
     img:string
+    position:string
+    gender:string
+    fin:string
+    center:string
+    phone:string
+    email:string
 }
 const users: KonulluType[] = [
     {
@@ -33,28 +32,52 @@ const users: KonulluType[] = [
         password: 'həsənova1',
         firstName: 'Solmaz',
         surName: 'Həsənova',
-        img:'/assets/images/users/hesenova.png'
+        img:'/assets/images/users/hesenova.png',
+        position:'Könüllülərlə iş şöbəsinin müdiri.',
+        gender:'Qadın',
+        fin:'***6CY',
+        center:'DOST Agentlik',
+        phone:'+99450XXXXXXX',
+        email:'hasanova@gmail.com',
     },
     {
         name: 'Teleyev',
         password: 'teleyev1',
         firstName: 'Fərid',
         surName: 'Teleyev',
-        img:'/assets/images/users/teleyev.png'
+        img:'/assets/images/users/teleyev.png',
+        position:'Könüllülərlə iş şöbəsinin əməkdaşı',
+        gender:'Kişi',
+        fin:'***6CY',
+        center:'DOST Agentlik',
+        phone:'+99450XXXXXXX',
+        email:'teleyev@gmail.com',
     },
     {
         name: 'Məmmədli',
         password: 'məmmədli1',
         firstName: 'Sona',
         surName: 'Məmmədli',
-        img:'/assets/images/users/memmedli.png'
+        img:'/assets/images/users/memmedli.png',
+        position:'Könüllülərlə iş şöbəsinin əməkdaşı',
+        gender:'Qadın',
+        fin:'***6CY',
+        center:'DOST Agentlik',
+        phone:'+99450XXXXXXX',
+        email:'mammadli@gmail.com',
     },
     {
         name: 'Aslanlı',
         password: 'aslanlı1',
         firstName: 'Nəcməddin',
         surName: 'Aslanlı',
-        img:'/assets/images/users/Nacmaddin.png'
+        img:'/assets/images/users/Nacmaddin.png',
+        position:'Abşeron Bakı DOST Mərkəzinin könüllərinin idarə edilməsi üzrə əməkdaş',
+        gender:'Kişi',
+        fin:'***6CY',
+        center:'Abşeron Bakı DOST Mərkəzini',
+        phone:'+99450XXXXXXX',
+        email:'aslanlı@gmail.com',
     }
 ];
 

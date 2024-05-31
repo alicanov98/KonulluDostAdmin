@@ -11,6 +11,7 @@ import NewsDetails from "./pages/NewsDetails";
 import SearchResults from "./pages/SearchResults";
 import Login from "./components/Login";
 import PrivateRoutes from "./utils/PrivateRoutes";
+import UserDetails from "./pages/UserDetails";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/voluntary-details/:id" element={<VoluntaryDetails />} />
           <Route path="/CenterVoluntaryDetails/:id/:type" element={<CenterVoluntaryDetails />} />
           <Route path="/search-results" element={<SearchResults />} />
+          <Route path="/UserDetails" element={<UserDetails />} />
         </Route>
         <Route path='login' element={<Login/>}/>
       </Routes>
