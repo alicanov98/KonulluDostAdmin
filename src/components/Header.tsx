@@ -5,7 +5,9 @@ import { RiPassValidLine } from "react-icons/ri";
 import { AiFillBell} from "react-icons/ai";
 import {Dialog} from "primereact/dialog";
 import {Avatar} from "primereact/avatar";
+import { ListBox } from 'primereact/listbox';
 import {OverlayPanel} from "primereact/overlaypanel";
+import {Badge} from "primereact/badge";
 // @ts-ignore
 
 export interface KonulluType {
@@ -31,10 +33,13 @@ const Header: React.FC  =  ()=> {
          setToken(JSON.parse(storedToken));
      }
  },[])
-
-
+    const [selectedItem, setSelectedItem] = useState(null);
+    const items = Array.from({ length:6 }, (_, index) => ({
+        label: `News #${index}`,
+        value: index
+    }));
     const op= useRef<OverlayPanel>(null);
-    console.log(op.current)
+    console.log(items)
     return (
 
   <header className='header'>
@@ -43,15 +48,27 @@ const Header: React.FC  =  ()=> {
         <div className='left'>  <HeadlessDemo/>
             <h3 className='textHeader'>Könüllülər haqqında informasiya sistemi</h3></div>
         <div className='headerIcons'>
-            <p style={{fontSize:20,color:'#fff'}}>{token?.firstName} {token?.surName}</p>
-            <AiFillBell style={{color:"white" ,fontSize:30}} />
-            <RiPassValidLine style={{color:"white" ,fontSize:30}} />
-                <img
-                    onClick={(e) => op.current && op.current.toggle(e)}
-                    src={process.env.PUBLIC_URL!+ token?.img}
-                    style={{ width: 40, height: 40, borderRadius: '9999px', objectFit: 'cover',cursor:'pointer' }}
-                    alt={token?.surName}
-                />
+            <p style={{fontSize: 20, color: '#fff'}}>{token?.firstName} {token?.surName}</p>
+            <i className="pi pi-envelope p-overlay-badge" style={{fontSize: 25,color:'#fff', cursor: 'pointer'}} onClick={() => {
+                setVisible(!visible)
+            }}>
+                {
+                    items.length>0 ?<Badge severity="danger"></Badge> :null
+                }
+            </i>
+            <RiPassValidLine style={{color: "white", fontSize: 30, cursor: 'pointer'}} />
+            {visible ?
+                <div className="card flex justify-content-center" style={{position: "absolute", top: 60, right: 90}}>
+                    {  items.length>0?<ListBox value={selectedItem} onChange={(e) => setSelectedItem(e.value)} options={items}
+                              virtualScrollerOptions={{itemSize: 38}} className="w-full md:w-14rem"
+                                               listStyle={{height: '250px', width: 200, zIndex: 2}}/>:null}
+                </div> : null}
+            <img
+                onClick={(e) => op.current && op.current.toggle(e)}
+                src={process.env.PUBLIC_URL! + token?.img}
+                style={{width: 40, height: 40, borderRadius: '9999px', objectFit: 'cover', cursor: 'pointer'}}
+                alt={token?.surName}
+            />
             <OverlayPanel ref={op}>
                 <img
                     src={process.env.PUBLIC_URL! + token?.img}
